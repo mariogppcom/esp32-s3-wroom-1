@@ -1,0 +1,47 @@
+esphome:
+  name: ESP-wroom-32-rfid-entrada
+  friendly_name: Pedestre RFID Entrada
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "xxxxxxxxxxxxxxxxxx"
+
+ota:
+  - platform: esphome
+    password: "xxxxxxxxxxxxxxxx"
+
+wifi:
+  networks:
+  - ssid: xxxx
+    password: xxxx
+  - ssid: yyyyy
+    password: dxxxx
+  # Set up a wifi access point
+  ap:
+    ssid: "ZZZZ"
+    password: "ZZZ"
+
+captive_portal:
+    
+web_server:
+  port: 80
+
+#
+spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+  miso_pin: GPIO19
+
+rc522_spi:
+  cs_pin: GPIO5
+  reset_pin: GPIO21
+  update_interval: 1s
